@@ -1,9 +1,9 @@
 import { Router } from "express";
+import userControler from "../controller/userControler";
+import userMiddleware from "../middleware/userMiddleware";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "ok" });
-});
+router.post("/", userMiddleware.CreateUserMiddleware, userControler.CreateUser);
 
 export default router;
