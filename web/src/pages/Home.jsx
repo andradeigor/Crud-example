@@ -2,7 +2,7 @@ import FormWarper from "../components/FormWarper";
 
 const Home = () => {
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-neutral-50">
+    <div className="relative  flex h-screen  w-screen justify-center bg-neutral-50">
       <FormWarper />
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./signUpForm";
-
+import { AnimatePresence } from "framer-motion";
 const FormWarper = () => {
   const [signIn, setSingIn] = useState(true);
   const handleClick = (local) => {
@@ -10,8 +10,12 @@ const FormWarper = () => {
     }
   };
   return (
-    <div className="h-80  w-72 rounded-lg shadow-md">
-      <div className="flex h-1/6  w-full">
+    <div
+      className={`absolute mt-[30vh] w-72 overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-out ${
+        signIn ? "h-80" : "h-1/2"
+      }`}
+    >
+      <div className="flex h-14  w-full ">
         <div
           className={`h-ful flex w-1/2 items-center justify-center rounded-tl-lg ${
             !signIn &&
@@ -36,7 +40,9 @@ const FormWarper = () => {
         </div>
       </div>
       <div className="h-5/6 w-full ">
-        {signIn ? <LoginForm /> : <SignUpForm />}
+        <AnimatePresence>
+          {signIn ? <LoginForm /> : <SignUpForm />}
+        </AnimatePresence>
       </div>
     </div>
   );
