@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./signUpForm";
 import { AnimatePresence } from "framer-motion";
+import { ToastContainer } from "react-toastify";
 const FormWarper = () => {
   const [signIn, setSingIn] = useState(true);
   const handleClick = (local) => {
@@ -11,9 +12,7 @@ const FormWarper = () => {
   };
   return (
     <div
-      className={`absolute mt-[30vh] w-72 overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-out ${
-        signIn ? "h-80" : "h-1/2"
-      }`}
+      className={`absolute mt-[30vh] w-80 overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-out `}
     >
       <div className="flex h-14  w-full ">
         <div
@@ -41,9 +40,25 @@ const FormWarper = () => {
       </div>
       <div className="h-5/6 w-full ">
         <AnimatePresence>
-          {signIn ? <LoginForm /> : <SignUpForm />}
+          {signIn ? (
+            <LoginForm />
+          ) : (
+            <SignUpForm setSignIn={() => setSingIn(true)} />
+          )}
         </AnimatePresence>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
