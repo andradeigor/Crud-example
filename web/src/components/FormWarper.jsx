@@ -2,7 +2,6 @@ import { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./signUpForm";
 import { AnimatePresence } from "framer-motion";
-import { ToastContainer } from "react-toastify";
 const FormWarper = () => {
   const [signIn, setSingIn] = useState(true);
   const handleClick = (local) => {
@@ -47,18 +46,6 @@ const FormWarper = () => {
           )}
         </AnimatePresence>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="light"
-      />
     </div>
   );
 };

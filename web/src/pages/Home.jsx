@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import FormWarper from "../components/FormWarper";
 
 const Home = () => {
